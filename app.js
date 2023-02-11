@@ -33,6 +33,8 @@ const builds = [
 const container = document.querySelector(".carousel-container");
 
 const container2 = document.querySelector(".carousel");
+const container3 = document.querySelector(".carousel-2");
 
 createCarouselSlider(links, container);
 createCarouselSlider(builds, container2);
+createCarouselSlider(builds, container3);

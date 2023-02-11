@@ -6,8 +6,8 @@ const createImages = (item) => {
 
   const styleDiv = {
     backgroundImage: `url('${item.link}')`,
-    minWidth: "100vw",
-    height: "100vh",
+    minWidth: "100%",
+    height: "100%",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -35,7 +35,7 @@ const createCarouselSlider = (items, container) => {
   const slider = document.createElement("div");
   slider.className = "carousel-slider";
   slider.style.width = "100%";
-  slider.style.height = "100vh";
+  slider.style.height = "100%";
   slider.style.display = "flex";
 
   for (const item of items) {
@@ -76,7 +76,8 @@ const createCarouselSlider = (items, container) => {
   //TODO: button event listener
   let counter = 1;
 
-  let size = window.innerWidth;
+  let size = container.offsetWidth;
+  console.log(size);
 
   const length = items.length;
   slider.style.transform = `translateX(-${size * counter}px)`;
@@ -104,7 +105,7 @@ const createCarouselSlider = (items, container) => {
   });
 
   window.addEventListener("resize", () => {
-    size = window.innerWidth;
+    size = container.offsetWidth;
     slider.style.transition = "none";
     slider.style.transform = `translateX(-${size * counter}px)`;
     clearInterval(interval);
